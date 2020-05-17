@@ -1,0 +1,12 @@
+.custom-card {
+    background-color: #a09b9b;
+    width: 300px;
+    height: 100px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 15%;
+}
