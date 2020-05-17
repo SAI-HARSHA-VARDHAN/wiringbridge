@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/review.css" />
     <link rel="stylesheet" href="css/ionicons.min.css" />
     <link rel="icon" href="img/logo.png" type="image/gif" sizes="16x16">
 
@@ -29,29 +29,54 @@
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="reviewSubmit.html">
                     <button id="reviewBtn" class="btn btn-danger my-2 ml-sm-4 my-sm-0 mr-5" type="button"> Submit Review </button>
-                    </a>
                 </li>
             </ul>
         </div>
         
     </nav>
-
-    <div class="container h-100">
-        <div class="row h-100 justify-content-center align-items-center mainDiv">
-            <form id="myForm" class="form-inline my-2 my-lg-0 mr-sm-4" method="GET" action="search.html">
-                <input id="searchField" name="search" class="form-control mr-sm-2" type="search" placeholder="Search Fake" aria-label="Search" onkeyup="searchFun"/>
-            </form>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-12 mt-3">
-                <div id="Result" class="removeThis"></div>
+    
+    <div class="container">
+        <form id="formId">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Review</label>
+                <input name="review" type="text" class="form-control" id="inputEmail4" placeholder="Title">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">URL</label>
+                <input name="url" type="url" class="form-control" id="inputPassword4" placeholder="URL">
+              </div>
             </div>
-        </div>
+            <div class="form-group">
+              <label for="inputAddress2">Tags</label>
+              <input name="tags" type="text" class="form-control" id="inputAddress2" placeholder="Comma seperated tags">
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-2">
+                <label for="inputZip">Rate</label>
+                <input name="rate" type="number" class="form-control" id="inputZip">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input name="anonymous" class="form-check-input" type="checkbox" id="gridCheck" >
+                <label class="form-check-label" for="gridCheck">
+                  Anonymous
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="fake" class="form-check-input" type="checkbox" id="gridCheck" >
+                <label class="form-check-label" for="gridCheck">
+                  Fake
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
     </div>
 
-    <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/review.js" type="text/javascript"></script>
 </body>
 
 </html>
