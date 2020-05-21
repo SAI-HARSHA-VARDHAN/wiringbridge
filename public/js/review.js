@@ -12,23 +12,28 @@ $('#formId').on('submit', function( e ){
            value = input.val();
        data[name] = value;
     });
-    data.tags = data.tags.split(', ')
-    data.anonymous = 'false'
-    data.fake = 'false'
-    console.log(data)
+    data.tags = data.tags.split(',')
+    // data.rating = localStorage.rate
+    data.rate = localStorage.rate
+    data.anonymous = localStorage.anonymous
+    data.fake = localStorage.fake
     data1 = data;
-
+    data = JSON.stringify(data)
     $.ajax({
         type: "POST",
         headers : {
-            Authorization : 'JWT ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJlbWFpbCI6ImFiaGlzaGVrcmFqMjcyQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoiYWJoaXNoZWtyYWoyNzIiLCJleHAiOjE1OTE2Mjg5OTN9.tRHeI1mQdLdYqQ12xHdw6hmIpGajdv5nVc7WPlSGNag'
+            Authorization :'JWT '+localStorage.access_token
         },
         contentType : 'application/json',
         url: 'https://backend.scrapshut.com/api/post/',
         data: data,
         success: function(data)
         {
-            alert(success); 
+            console.log(data); 
+        },
+        error: function(data)
+        {
+            console.log(data); 
         }
       });
  

@@ -1,0 +1,58 @@
+.custom-card {
+    background-color: #a09b9b;
+    width: 300px;
+    height: 100px;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 15%;
+}
+
+.mainc{
+    /* background-color: #a09b9b; */
+    width: 30vw;
+    margin-top: -20px;
+}
+
+.form-row{
+    margin-top: 20px;
+}
+
+.form-check{
+    margin-top: 10px;
+}
+
+.label{
+    text-align: left;
+}
+
+.sub{
+    margin-top: 10px;
+}
+
+input{
+    border-color: #6A9FC7 !important;
+}
+.label:after{
+    content:" *";
+    /* color: red; */
+}
+
+.nav-logo {
+    margin-left: 10%;
+}
+
+/* @media only screen and (max-width: 600px) {
+    .mainc{
+        width: 100vw;
+    }
+} */
+
+@media screen and (max-width: 1400px) {
+    .mainc{
+        width: 100vw;
+    }
+}

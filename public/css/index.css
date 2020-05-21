@@ -1,0 +1,60 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mainDiv {
+    margin-top: 20px;
+}
+
+.footer-custom {
+    margin-top: 21.5%;
+}
+
+.nav-logo {
+    margin-left: 10%;
+}
+
+input[type=search] {
+    background: url("https://img.icons8.com/pastel-glyph/64/000000/search--v2.png") left no-repeat;
+    background-size: 25px;
+    border: 1px solid #d1d1d1;
+    color: #352222;
+    width: 100%;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) inset;
+    text-indent: 20px;
+    background-position-x: 5px;
+}
+
+input[type=search]:focus {
+    width: 50%;
+    margin-top: -50px;
+}
+
+.the-logo {
+    width: 400px;
+    height: 300px;
+}
+.btn{
+    margin-right: 30px;
+}
+
+.tagtext{
+    background-color: #5CB85C;
+    padding: 5px;    
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.tagcont{
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .cardy{
+        width: 92vw !important;
+    }
+}
