@@ -19,10 +19,11 @@ $('#formId').on('submit', function( e ){
     data.fake = localStorage.fake
     data1 = data;
     data = JSON.stringify(data)
+    console.log(data)
     $.ajax({
         type: "POST",
         headers : {
-            Authorization :'JWT '+localStorage.access_token
+            Authorization :'JWT '+ localStorage.access_token
         },
         contentType : 'application/json',
         url: 'https://backend.scrapshut.com/api/post/',
@@ -30,10 +31,21 @@ $('#formId').on('submit', function( e ){
         success: function(data)
         {
             // alert(Object.values(data));
+            document.getElementById("mod").click();
         },
         error: function(data)
         {
-            // alert(Object.values(data));
+            var error = JSON.parse(Object.values(data)[16]);
+            var errorDetails = error.details;
+            if(errorDetails == undefined){
+                errorDetails = error.detail;
+            }
+            if(errorDetails == "Error decoding signature."){
+                document.getElementById("mod1").click();
+            }
+            else{
+                alert("Error: "+errorDetails);
+            }
         }
       });
  

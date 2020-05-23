@@ -11,8 +11,54 @@
 // document.getElementById("myForm").onclick = hideReviewBtn('hide');
 // document.querySelector('.container').onclick = hideReviewBtn('unhide');
 var cnt = 0;
+var fakeCount = 0;
+var reviewCount = 0;
+var p;
+var open=1;
+function renderchart(){
+    //     p = reviewCount/(fakeCount+reviewCount);
+    //     p = p*100;
+    //     p = Math.round(p);
+    //     var np = 100-p;
+    //     var chart = new CanvasJS.Chart("chartContainer", {
+    //     theme: "light1", // "light1", "light2", "dark1", "dark2"
+    //     // exportEnabled: true,
+    //     animationEnabled: true,
+    //     // title: {
+    //     //     text: "Desktop Browser Market Share in 2016"
+    //     // },
+    //     data: [{
+    //         type: "pie",
+    //         startAngle: 25,
+    //         toolTipContent: "<b>{label}</b>: {y}%",
+    //         showInLegend: "true",
+    //         legendText: "{label}",
+    //         // indexLabelFontSize: 16,
+    //         indexLabel: "{label} - {y}%",
+    //         dataPoints: [
+    //             { y: p, label: "Not Fake" },
+    //             { y: np, label: "Fake" }
+    //         ]
+    //     }]
+    // });
+    // chart.render();
+}
 function toggletext(a){
     var id = "#toggle"+a;
+    // var id1 = "auth"+a;
+    // var id2 = "review"+a;
+    // if(localStorage.access_token == undefined){
+    //     // if(open == 1){
+    //         document.getElementById("mod").click();
+    //         document.getElementById(id1).style.display = "none";
+    //         document.getElementById(id2).style.display = "none";
+    //         // open = 0;
+    //     // }
+    //     // else{
+    //         // open = 1;
+    //     // }
+    //     document.getElementById(id1).style.color = "red";
+    // }
     if($(id).text() == "Show Reviews"){
         $(id).text('Hide Reviews');
     }
@@ -30,7 +76,14 @@ function maketags(c,tags){
     }
     else{
          for(var i =0;i<tags.length;i++){
-            html += `<span class="tagtext">${tags[i]}</span>&nbsp&nbsp`;
+             if(tags[i].toLowerCase() == "fake"){
+                 fakeCount+=1;
+                 html += `<span class="tagtext" style="background-color:red;">${tags[i]}</span>&nbsp&nbsp`;
+             }
+             else{
+                 reviewCount+=1;
+                html += `<span class="tagtext">${tags[i]}</span>&nbsp&nbsp`;
+             }
         }
         html += `</p>`;
     }
@@ -57,6 +110,8 @@ let searchFun = function (event) {
             );
         }
         else {
+            var fakeCount = 0;
+            var reviewCount = 0;
             for (let i = 0; i < data.count; i++) {
                 cnt+=1;
                 let tags = data.results[i].tags.toString();
@@ -74,14 +129,15 @@ let searchFun = function (event) {
                         <button class="btn btn-primary btn" type="button" data-toggle="collapse" data-target="#collapseExample${cnt}" aria-expanded="false" aria-controls="collapseExample" onclick="toggletext(${cnt})" id="toggle${cnt}">Show Reviews</button>
                         </p>
                         <div class="collapse" id="collapseExample${cnt}">
-                            <p><br/><b>${data.results[i].author}</b></p>
-                            <p>&nbsp&nbsp&nbspReview: ${data.results[i].review}</p>
+                            <p id="auth${cnt}"><br/><b>${data.results[i].author}</b></p>
+                            <p id="review${cnt}">&nbsp&nbsp&nbspReview: ${data.results[i].review}</p>
                         </div>
                         </div>
                     </div>`
                 );
                 maketags(cnt,tags);
             }
+            renderchart();
         }
     });
 };
