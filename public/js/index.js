@@ -106,20 +106,22 @@ $(function () {
 $(function () {
     $("input[type=search]").focusin(function () {
         $('.the-logo').css({
-            "width": 200,
-            "height": 100,
-            "margin-left": "-1000px",
-            "-webkit-transition": "all 0.5s ease-in-out;",
-            "transition": "all 0.5s ease-in-out;"
+            // "width": 200,
+            // "height": 100,
+            // "margin-left": "-1000px",
+            // "-webkit-transition": "all 0.5s ease-in-out;",
+            // "transition": "all 0.5s ease-in-out;"
+            "display":"none"
         });
     });
     $("input[type=search]").focusout(function () {
         $('.the-logo').css({
-            "width": 400,
-            "height": 300,
-            "margin-left": "-1px",
-            "-webkit-transition": "all 0.5s ease-in-out;",
-            "transition": "all 0.5s ease-in-out;"
+            // "width": 400,
+            // "height": 300,
+            // "margin-left": "-1px",
+            // "-webkit-transition": "all 0.5s ease-in-out;",
+            // "transition": "all 0.5s ease-in-out;"
+            "display": "block"
         });
     });
 });

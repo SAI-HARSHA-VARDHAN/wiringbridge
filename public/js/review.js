@@ -29,11 +29,11 @@ $('#formId').on('submit', function( e ){
         data: data,
         success: function(data)
         {
-            console.log(data); 
+            // alert(Object.values(data));
         },
         error: function(data)
         {
-            console.log(data); 
+            // alert(Object.values(data));
         }
       });
  
