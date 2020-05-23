@@ -66,7 +66,7 @@ let searchFun = function (event) {
                         <h5 class="card-header"><p id="tags${cnt}">&nbsp&nbsp&nbspTags: ${str}</p></h5>
                         <div class="card-body">
                         <div class="row">
-                        <div class="col-10"><h5 class="card-title"><a target="_black" href="${data.results[i].url}"> ${data.results[i].url}</a></h5></div>
+                        <div class="col-10"><h5 class="card-title"><a target="_blank" href="${data.results[i].url}"> ${data.results[i].url}</a></h5></div>
                         <div class='col-2'> <p style="color:#EF4136"><b>${data.results[i].rate}<i class="fa fa-star" aria-hidden="true"></i></b></p></div>
                         </div>
                         <br/>
