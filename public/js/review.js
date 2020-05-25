@@ -1,16 +1,26 @@
 let data1;
-$('#formId').on('submit', function( e ){ 
-    var form = $( this ), // this will resolve to the form submitted
-        action = form.attr( 'action' ),
-          type = form.attr( 'method' ),
-          data = {};
- 
-      // Make sure you use the 'name' field on the inputs you want to grab. 
-    form.find( '[name]' ).each( function( i , v ){
-       var input = $( this ), // resolves to current input element.
-           name = input.attr( 'name' ),
-           value = input.val();
-       data[name] = value;
+
+function onSubmit(token) {
+    document.getElementById("formId").submit();
+}
+
+$('#formId').on('submit', function (e) {
+    if (grecaptcha.getResponse() == ""){
+        alert("Please check the recaptcha");
+        return;
+    }
+
+    var form = $(this), // this will resolve to the form submitted
+        action = form.attr('action'),
+        type = form.attr('method'),
+        data = {};
+
+    // Make sure you use the 'name' field on the inputs you want to grab. 
+    form.find('[name]').each(function (i, v) {
+        var input = $(this), // resolves to current input element.
+            name = input.attr('name'),
+            value = input.val();
+        data[name] = value;
     });
     data.tags = data.tags.split(',')
     // data.rating = localStorage.rate
@@ -24,11 +34,10 @@ $('#formId').on('submit', function( e ){
         headers : {
             Authorization :'JWT '+localStorage.access_token
         },
-        contentType : 'application/json',
+        contentType: 'application/json',
         url: 'https://backend.scrapshut.com/api/post/',
         data: data,
-        success: function(data)
-        {
+        success: function (data) {
             // alert(Object.values(data));
             document.getElementById("mod").click();
         },
@@ -49,7 +58,7 @@ $('#formId').on('submit', function( e ){
                 alert("Error: "+errorDetails);
             }
         }
-      });
- 
+    });
+
     e.preventDefault();
 });

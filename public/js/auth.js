@@ -1,4 +1,3 @@
-
 var GoogleAuth;
 var SCOPE = 'https://www.googleapis.com/auth/userinfo.email openid';
 function handleClientLoad() {
@@ -35,7 +34,7 @@ function handleAuthClick() {
   } else {
     let async_func = async function() {
       const promise1 = await GoogleAuth.signIn();
-      const promise2 = await new Promise(r => setTimeout(r, 1000));
+      const promise2 = await new Promise(r => setTimeout(r,600));
       const promise3 = await window.location.reload();
     }
      async_func();
@@ -82,15 +81,14 @@ function setSigninStatus(isSignedIn) {
     console.log("removed")
 
     $('#navbar-list').append(`<li id="signedIn" class="nav-item dropdown">
-
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ${localStorage.name}
             </a>
      
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="javascript:void(0);">Scrapcoins: ${localStorage.scrapcoins}</a>
                 <a class="dropdown-item" id="sign-in-or-out-button" href="#">Sign Out</a>
-                
             </div>
         </li>`);
     $('#notSignedIn').remove()
@@ -119,4 +117,62 @@ function setSigninStatus(isSignedIn) {
 
 function updateSigninStatus(isSignedIn) {
   setSigninStatus();
+}
+
+if(localStorage.access_token != undefined){
+  fetchProfile();
+}
+
+//To fetch user profile
+function fetchProfile(){
+  $.ajax({
+        type: "POST",
+        headers : {
+            Authorization :'JWT '+localStorage.access_token
+        },
+        contentType: 'application/json',
+        url: 'https://backend.scrapshut.com/user/profile/',
+        data: {},
+        success: function (data) {
+            var scrapcoins =  data.results[0].Scrapcoins;
+            var id =  data.results[0].userid;
+            localStorage.scrapcoins = scrapcoins;
+            localStorage.userid = id;
+            console.log(localStorage.scrapcoins);
+            console.log(localStorage.userid);
+        },
+        error: function(data)
+        {
+            var error = JSON.parse(data.responseText);
+            if(error.details == "Tags for this user already exists !"){
+                fetchProfileGet();
+            }
+        }
+    });
+}
+
+//To fetch user profile using get request if post request fails
+function fetchProfileGet(){
+  console.log("Using GET");
+  $.ajax({
+        type: "GET",
+        headers : {
+            Authorization :'JWT '+localStorage.access_token
+        },
+        contentType: 'application/json',
+        url: 'https://backend.scrapshut.com/user/profile/',
+        data: {},
+        success: function (data) {
+            var scrapcoins =  data.results[0].Scrapcoins;
+            var id =  data.results[0].userid;
+            localStorage.scrapcoins = scrapcoins;
+            localStorage.userid = id;
+            console.log(localStorage.scrapcoins);
+            console.log(localStorage.userid);
+        },
+        error: function(data)
+        {
+            console.log(data);
+        }
+    });
 }

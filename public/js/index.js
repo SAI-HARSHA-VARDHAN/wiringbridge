@@ -10,7 +10,49 @@
 
 // document.getElementById("myForm").onclick = hideReviewBtn('hide');
 // document.querySelector('.container').onclick = hideReviewBtn('unhide');
+
 var cnt = 0;
+
+//Genuine or spam logic
+function selected(a,b,c){
+    var id = "sel"+a+b;
+    var postid = c;
+    var bo;
+    if(b==0){
+        bo = 1;
+    }
+    else{
+        bo = 0;
+    }
+    var ido = "sel"+a+bo;
+    document.getElementById(id).style.filter="blur(0px)";
+    document.getElementById(ido).style.filter="blur(1px)";
+    if(b==0){
+        var sel = "upvote";
+    }
+    else{
+        var sel = "downvote";
+    }
+    var url = "https://backend.scrapshut.com/api/post/vote/"+postid+"/"+localStorage.userid+"/"+sel;
+    $.ajax({
+        type: "GET",
+        headers : {
+            Authorization :'JWT '+localStorage.access_token
+        },
+        contentType: 'application/json',
+        url: url,
+        data: {},
+        success: function (data) {
+            console.log(data);
+            console.log("success");
+        },
+        error: function(data)
+        {
+            console.log(data);
+        }
+    });
+}
+
 function toggletext(a){
     var id = "#toggle"+a;
     if($(id).text() == "Show Reviews"){
@@ -83,6 +125,7 @@ let searchFun = function (event) {
                         <div class="collapse" id="collapseExample${cnt}">
                             <p><br/><b>${data.results[i].author}</b></p>
                             <p>&nbsp&nbsp&nbspReview: ${data.results[i].review}</p>
+                            <img src="public/img/ok.png" height="35px" class="select" id="sel${cnt}0" onclick="selected(${cnt},0,${data.results[i].id})"><img src="public/img/stop.png" height="35px"  class="select" id="sel${cnt}1" onclick="selected(${cnt},1,${data.results[i].id})" style="margin-left:20px;">
                         </div>
                         </div>
                     </div>`

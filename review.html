@@ -2,18 +2,25 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="google-signin-client_id" content="478932307585-4tmv4oujlpv55u3ehcutm4udjuc9vanq.apps.googleusercontent.com">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+  <meta name="google-signin-client_id"
+    content="478932307585-4tmv4oujlpv55u3ehcutm4udjuc9vanq.apps.googleusercontent.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta charset="utf-8" />
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
   <script src="public/js/slider.js"></script>
   <script src="public/js/auth.js" type="text/javascript"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <link rel="stylesheet" href="public/css/slider.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="public/css/review.css" />
   <link rel="stylesheet" href="public/css/ionicons.min.css" />
@@ -21,10 +28,11 @@
 
   <title>WiringBridge</title>
   <style>
-    #mod{
+    #mod {
       display: none;
     }
-    #mod1{
+
+    #mod1 {
       display: none;
     }
   </style>
@@ -56,6 +64,18 @@
         localStorage.fake = "false";
       }
     }
+    function enableBtn() {
+      document.getElementById("submitBtn").disabled = false;
+    }
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150983698-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-150983698-2');
   </script>
 </head>
 
@@ -72,7 +92,7 @@
         <ul id="navbar-list" class="navbar-nav ml-auto mr-5">
 
           <li class="nav-item">
-            
+
           </li>
 
         </ul>
@@ -137,7 +157,7 @@
         <div class="form-check col-12" style="text-align: left;">
           <input name="anonymous" class="form-check-input" type="checkbox" id="gridCheck1" onclick="updatean()">
           <label class="form-check-label" for="gridCheck">
-            Might be Anonymous
+            Anonymous
           </label>
         </div>
         <div class="form-check col-12" style="text-align: left;">
@@ -147,12 +167,16 @@
           </label>
         </div>
       </div>
-      <p style="text-align: center;"><button type="submit" class="btn btn-primary sub">Submit</button></p>
+      <div class="g-recaptcha" data-sitekey="6LeVrPsUAAAAAF2ZWs9-6ZoUP8JaZbj0TZUVZd3E"
+        data-callback="enableBtn"></div>
+      <p style="text-align: center;"><button id="submitBtn" type="submit" class="btn btn-primary sub"
+          disabled="disabled">Submit</button></p>
     </form>
   </div>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="mod">
   </button>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -165,7 +189,7 @@
           <img src="public/img/success.png" height="200px" width="150px">
         </div>
         <div class="modal-footer">
-            <a href="javascript:history.go(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</a>
+          <a href="javascript:history.go(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go Back</a>
         </div>
       </div>
     </div>
@@ -174,7 +198,8 @@
     <!-- Launch demo modal -->
   </button>
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -184,7 +209,8 @@
           </button>
         </div>
         <div class="modal-body">
-          Please sign in to review
+          Please sign in to review<br/>
+          <a href="/"><button type="button" class="btn btn-primary" style="font-size: 12px;margin-top: 10px;">HOME</button></a>
         </div>
       </div>
     </div>

@@ -14,6 +14,10 @@ body {
     margin-left: 10%;
 }
 
+/* .select{
+    filter: blur(0.5px);
+} */
+
 input[type=search] {
     background: url("https://img.icons8.com/pastel-glyph/64/000000/search--v2.png") left no-repeat;
     background-size: 25px;
