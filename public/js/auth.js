@@ -28,6 +28,8 @@ function handleAuthClick() {
   if (GoogleAuth.isSignedIn.get()) {
     GoogleAuth.signOut(
       localStorage.removeItem("auth_token"),
+      localStorage.removeItem("scrapcoins"),
+      localStorage.removeItem("userid"),
       localStorage.removeItem('name')
     );
     window.location.reload();
