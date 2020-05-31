@@ -60,6 +60,9 @@ function setSigninStatus(isSignedIn) {
     console.log(dat);
     $.ajax({
       type: "POST",
+      headers : {
+        "API-KEY":"LrUyJbg2.hbzsN46K8ghSgF8LkhxgybbDnGqqYhKM"
+      },
       contentType: "application/json",
       url: "https://backend.scrapshut.com/a/google/",
       data: dat,
@@ -130,7 +133,8 @@ function fetchProfile(){
   $.ajax({
         type: "POST",
         headers : {
-            Authorization :'JWT '+localStorage.access_token
+            Authorization :'JWT '+localStorage.access_token,
+            "API-KEY":"LrUyJbg2.hbzsN46K8ghSgF8LkhxgybbDnGqqYhKM"
         },
         contentType: 'application/json',
         url: 'https://backend.scrapshut.com/user/profile/',
@@ -159,7 +163,8 @@ function fetchProfileGet(){
   $.ajax({
         type: "GET",
         headers : {
-            Authorization :'JWT '+localStorage.access_token
+            Authorization :'JWT '+localStorage.access_token,
+            "API-KEY":"LrUyJbg2.hbzsN46K8ghSgF8LkhxgybbDnGqqYhKM"
         },
         contentType: 'application/json',
         url: 'https://backend.scrapshut.com/user/profile/',

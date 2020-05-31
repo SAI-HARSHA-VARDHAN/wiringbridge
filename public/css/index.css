@@ -2,6 +2,16 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.count{
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.counter{
+    font-weight: 400;
+    font-size: 18px;
+}
+
 .mainDiv {
     margin-top: 5%;
 }

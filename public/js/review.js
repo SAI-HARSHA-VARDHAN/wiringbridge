@@ -32,7 +32,8 @@ $('#formId').on('submit', function (e) {
     $.ajax({
         type: "POST",
         headers : {
-            Authorization :'JWT '+localStorage.access_token
+            Authorization :'JWT '+localStorage.access_token,
+            "API-KEY":"LrUyJbg2.hbzsN46K8ghSgF8LkhxgybbDnGqqYhKM"
         },
         contentType: 'application/json',
         url: 'https://backend.scrapshut.com/api/post/',
