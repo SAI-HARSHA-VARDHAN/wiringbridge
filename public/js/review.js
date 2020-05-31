@@ -1,4 +1,4 @@
-let data1;
+let testData;
 
 function onSubmit(token) {
     document.getElementById("formId").submit();
@@ -27,8 +27,15 @@ $('#formId').on('submit', function (e) {
     data.rate = localStorage.rate
     data.anonymous = localStorage.anonymous
     data.fake = localStorage.fake
-    data1 = data;
+
+    testData = data;
+    let advTitle = document.getElementById("advTitle").value;
+    let advUrl = document.getElementById("advUrl").value;
+    let advContent = document.getElementById("advContent").value;
+
+    data["advertisement"] = {"title": advTitle, "url": advUrl, "advertizing_content": advContent}
     data = JSON.stringify(data)
+
     $.ajax({
         type: "POST",
         headers : {
