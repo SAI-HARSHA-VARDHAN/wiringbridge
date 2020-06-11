@@ -112,6 +112,17 @@ function maketagsAndadvertisement(c,tags,adv){
         var idAdvButton = "advbtn"+c;
         document.getElementById(idAdvButton).disabled = true;
     }
+    else if(adv.title == "" && adv.title=="" && adv.advertizing_content == ""){
+        var idAdvButton = "advbtn"+c;
+        document.getElementById(idAdvButton).disabled = true;
+    }
+    else if(adv.title == null && adv.title==null && adv.advertizing_content == null){
+        var idAdvButton = "advbtn"+c;
+        document.getElementById(idAdvButton).disabled = true;
+    }
+    else{
+
+    }
 }
 let searchFun = function (event) {
 
@@ -135,7 +146,7 @@ let searchFun = function (event) {
         url: 'https://backend.scrapshut.com/api/service/post/?search='+payload,
         data: {},
         success: function (data) {
-            // console.log(data);
+            console.log(data);
             if (data.count == 0) {
             $("#Result").append(
                 `<div class="alert alert-danger text-center" role="alert">
