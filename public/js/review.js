@@ -33,7 +33,10 @@ $('#formId').on('submit', function (e) {
     let advUrl = document.getElementById("advUrl").value;
     let advContent = document.getElementById("advContent").value;
 
-    data["advertisement"] = {"title": advTitle, "url": advUrl, "advertizing_content": advContent}
+    if (advTitle != "" || advTitle != " ") {
+        data["advertisement"] = {"title": advTitle, "url": advUrl, "advertizing_content": advContent}
+    }
+        
     data = JSON.stringify(data)
 
     $.ajax({

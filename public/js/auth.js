@@ -3,7 +3,11 @@ var SCOPE = 'https://www.googleapis.com/auth/userinfo.email openid';
 function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }
+/*checking whether token is present or not */
 
+if(window.localStorage.getItem('access_token')!=''){
+  $('.profile').show();
+}
 function initClient() {
   var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
   gapi.client.init({
