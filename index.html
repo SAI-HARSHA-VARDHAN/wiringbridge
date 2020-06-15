@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://apikeyscrapshut.s3.ap-south-1.amazonaws.com/index.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+<!--                    CDN          -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -14,10 +14,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    
     <link rel="stylesheet" href="public/css/index.css" />
     <link rel="stylesheet" href="public/css/ionicons.min.css" />
     <link rel="icon" href="public/img/logo.png" type="image/gif" sizes="16x16">
@@ -29,7 +29,11 @@
     content="478932307585-4tmv4oujlpv55u3ehcutm4udjuc9vanq.apps.googleusercontent.com">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!--File containing the condition whether the token is stored or not-->
     <script src="public/js/auth.js" type="text/javascript"></script>
+
+
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -88,6 +92,12 @@
         </div>
         <div id="navbarSupportedContent" class="navbar-collapse collapse">
             <ul id="navbar-list" class="navbar-nav ml-auto">
+                <li class="nav-item profile active">
+                    <a href="timeline.html">
+                        <button id="profileBtn" class="btn btn-primary my-2 ml-sm-4 my-sm-0 mr-5" type="button">
+                            Profile </button>
+                    </a>
+                </li>
 
                 <li class="nav-item active">
                     <a href="review.html">
@@ -95,7 +105,7 @@
                             Submit Review </button>
                     </a>
                 </li>
-
+                
             </ul>
         </div>
     </nav>
