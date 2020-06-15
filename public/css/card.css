@@ -1,0 +1,45 @@
+.custom-card {
+    background-color: #a09b9b;
+    width: 300px;
+    height: 100px;
+}
+.btn{
+    margin-right: 30px;
+}
+
+.tagtext{
+    background-color: #5CB85C;
+    padding: 5px;    
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.tagcont{
+    margin-top: 10px;
+}
+.btn{
+    margin-right: 30px;
+}
+
+.tagtext{
+    background-color: #5CB85C;
+    padding: 5px;    
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.tagcont{
+    margin-top: 10px;
+}
+.count{
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.counter{
+    font-weight: 400;
+    font-size: 18px;
+}
+

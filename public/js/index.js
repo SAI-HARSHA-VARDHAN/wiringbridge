@@ -10,7 +10,11 @@
 
 // document.getElementById("myForm").onclick = hideReviewBtn('hide');
 // document.querySelector('.container').onclick = hideReviewBtn('unhide');
-
+/*if token is present    */
+console.log('sdsd');
+if(window.localStorage.getItem('access_token')!=''){
+    $('.profile').show();
+}
 var cnt = 0;
 
 //Genuine or spam logic
@@ -146,15 +150,8 @@ let searchFun = function (event) {
         url: 'https://backend.scrapshut.com/api/service/post/?search='+payload,
         data: {},
         success: function (data) {
+            
             console.log(data);
-            if (data.count == 0) {
-            $("#Result").append(
-                `<div class="alert alert-danger text-center" role="alert">
-                Oops...no search result.
-              </div>`
-            );
-        }
-        else {
             for (let i = 0; i < data.count; i++) {
                 cnt+=1;
                 let tags = data.results[i].tags.toString();
@@ -194,8 +191,7 @@ let searchFun = function (event) {
         }
             console.log("success");
         },
-        error: function(data)
-        {
+        error: function(data){
             console.log(data);
         }
     });
@@ -282,3 +278,4 @@ $(function () {
         });
     });
 });
+
