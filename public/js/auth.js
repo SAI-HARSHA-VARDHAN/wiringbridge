@@ -5,9 +5,6 @@ function handleClientLoad() {
 }
 /*checking whether token is present or not */
 
-if(window.localStorage.getItem('access_token')!=''){
-  $('.profile').show();
-}
 function initClient() {
   var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
   gapi.client.init({
@@ -101,6 +98,7 @@ function setSigninStatus(isSignedIn) {
             </div>
         </li>`);
     $('#notSignedIn').remove()
+    $('.profile').show();
     // $('#sign-in-or-out-button').html('Sign out');
     // $('#revoke-access-button').css('display', 'inline-block');
     // $('#auth-status').html('You are currently signed in and have granted ' +
