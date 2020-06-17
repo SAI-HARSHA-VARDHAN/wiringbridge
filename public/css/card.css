@@ -42,4 +42,12 @@
     font-weight: 400;
     font-size: 18px;
 }
+.fa{
+    cursor: pointer;
+}
+[class*="delete"]{
+    float:right;
+    display: none;
+}
+
 
