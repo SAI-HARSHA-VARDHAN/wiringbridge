@@ -188,7 +188,6 @@ let searchFun = function (event) {
                 );
                 maketagsAndadvertisement(cnt,tags,data.results[i].advertisement);
             }
-        }
             console.log("success");
         },
         error: function(data){

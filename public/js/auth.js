@@ -5,9 +5,6 @@ function handleClientLoad() {
 }
 /*checking whether token is present or not */
 
-if(window.localStorage.getItem('access_token')!=''){
-  $('.profile').show();
-}
 function initClient() {
   var discoveryUrl = 'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest';
   gapi.client.init({
@@ -96,11 +93,13 @@ function setSigninStatus(isSignedIn) {
             </a>
      
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item profile" href="timeline.html" id="profileBtn">Profile</a>
                 <a class="dropdown-item" href="javascript:void(0);">Scrapcoins: ${localStorage.scrapcoins}</a>
                 <a class="dropdown-item" id="sign-in-or-out-button" href="#">Sign Out</a>
             </div>
         </li>`);
     $('#notSignedIn').remove()
+    $('.profile').show();
     // $('#sign-in-or-out-button').html('Sign out');
     // $('#revoke-access-button').css('display', 'inline-block');
     // $('#auth-status').html('You are currently signed in and have granted ' +
