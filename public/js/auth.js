@@ -94,7 +94,7 @@ function setSigninStatus(isSignedIn) {
      
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item profile" href="timeline.html" id="profileBtn">Profile</a>
-                <a class="dropdown-item" href="javascript:void(0);">Scrapcoins: ${localStorage.scrapcoins}</a>
+                <a class="dropdown-item" href="javascript:void(0);">Scrapstats: ${localStorage.scrapcoins}</a>
                 <a class="dropdown-item" id="sign-in-or-out-button" href="#">Sign Out</a>
             </div>
         </li>`);
