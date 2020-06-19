@@ -25,6 +25,8 @@ function initClient() {
   });
 }
 
+var a = 0;
+
 function handleAuthClick() {
   if (GoogleAuth.isSignedIn.get()) {
     GoogleAuth.signOut(
@@ -33,12 +35,17 @@ function handleAuthClick() {
       localStorage.removeItem("userid"),
       localStorage.removeItem('name')
     );
-    window.location.reload();
-  } else {
     let async_func = async function() {
-      const promise1 = await GoogleAuth.signIn();
       const promise2 = await new Promise(r => setTimeout(r,600));
       const promise3 = await window.location.reload();
+    }
+    async_func();
+  } else {
+    a = 1;
+    let async_func = async function() {
+      const promise1 = await GoogleAuth.signIn();
+      // const promise2 = await new Promise(r => setTimeout(r,600));
+      // const promise3 = await window.location.reload();
     }
      async_func();
     
@@ -53,6 +60,7 @@ function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
   console.log(user.getAuthResponse().access_token);
   if (user.getAuthResponse().access_token != undefined) {
+  document.getElementById("loading").style.display = "block"
     data = {
       "provider": "google",
       "token": `${user.getAuthResponse().access_token}`
@@ -76,6 +84,7 @@ function setSigninStatus(isSignedIn) {
         utoken = msg.access_token
         localStorage.access_token = utoken
         console.log(localStorage.access_token)
+        fetchProfile(a)
       }
     });
   }
@@ -129,12 +138,13 @@ function updateSigninStatus(isSignedIn) {
   setSigninStatus();
 }
 
-if(localStorage.access_token != undefined){
-  fetchProfile();
-}
+// if(localStorage.access_token != undefined){
+//   fetchProfile(0);
+// }
 
 //To fetch user profile
-function fetchProfile(){
+function fetchProfile(a){
+  console.log(a)
   $.ajax({
         type: "POST",
         headers : {
@@ -151,19 +161,27 @@ function fetchProfile(){
             localStorage.userid = id;
             console.log(localStorage.scrapcoins);
             console.log(localStorage.userid);
+            if(a == 1){
+              console.log(a)
+              aftersignin()
+            }
+            else{
+              after()
+            }
         },
         error: function(data)
         {
             var error = JSON.parse(data.responseText);
             if(error.details == "Tags for this user already exists !"){
-                fetchProfileGet();
+                fetchProfileGet(a);
             }
         }
     });
 }
 
 //To fetch user profile using get request if post request fails
-function fetchProfileGet(){
+function fetchProfileGet(a){
+  console.log(a)
   console.log("Using GET");
   $.ajax({
         type: "GET",
@@ -181,10 +199,26 @@ function fetchProfileGet(){
             localStorage.userid = id;
             console.log(localStorage.scrapcoins);
             console.log(localStorage.userid);
+            if(a == 1){
+              console.log(a)
+              aftersignin()
+            }
+            else{
+              after()
+            }
         },
         error: function(data)
         {
             console.log(data);
         }
     });
+}
+
+function aftersignin(){
+  document.getElementById("loading").style.display = "none"
+  window.location.reload()
+}
+
+function after(){
+  document.getElementById("loading").style.display = "none"
 }
