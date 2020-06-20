@@ -140,6 +140,7 @@ let searchFun = function (event) {
     console.log(payload)
     $('.card').remove()
     $('.alert').remove()
+    $('#loading').css("display","block")
     $.ajax({
         type: "GET",
         headers : {
@@ -150,7 +151,7 @@ let searchFun = function (event) {
         url: 'https://backend.scrapshut.com/api/service/post/?search='+payload,
         data: {},
         success: function (data) {
-            
+            $('#loading').css("display","none")
             console.log(data);
             for (let i = 0; i < data.count; i++) {
                 cnt+=1;
