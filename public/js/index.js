@@ -150,19 +150,19 @@ let searchFun = function (event) {
         url: 'https://backend.scrapshut.com/api/service/post/?search='+payload,
         data: {},
         success: function (data) {
-            
-            console.log(data);
-            for (let i = 0; i < data.count; i++) {
+            console.log(data)
+            for (let i = 0; i < data.length; i++) {
+                console.log('entered')
                 cnt+=1;
-                let tags = data.results[i].tags.toString();
+                let tags = data[i].tags.toString();
                 var str = `${tags}`;
                 $("#Result").append(
                     `<div class="card cardy" style="margin-top:20px;width:50vw;margin-bottom:20px;">
                         <h5 class="card-header"><p id="tags${cnt}">&nbsp&nbsp&nbspTags: ${str}</p></h5>
                         <div class="card-body">
                         <div class="row">
-                        <div class="col-10"><h5 class="card-title"><a target="_blank" href="${data.results[i].url}"> ${data.results[i].url}</a></h5></div>
-                        <div class='col-2'> <p style="color:#EF4136"><b>${data.results[i].rate}<i class="fa fa-star" aria-hidden="true"></i></b></p></div>
+                        <div class="col-10"><h5 class="card-title"><a target="_blank" href="${data[i].url}"> ${data[i].url}</a></h5></div>
+                        <div class='col-2'> <p style="color:#EF4136"><b>${data[i].rate}<i class="fa fa-star" aria-hidden="true"></i></b></p></div>
                         </div>
                         <br/>
                         <div class="row">
@@ -174,19 +174,19 @@ let searchFun = function (event) {
                             </div>
                         </div>
                         <div class="collapse" id="collapseExample${cnt}">
-                            <p><br/><b>${data.results[i].author}</b></p>
-                            <p>&nbsp&nbsp&nbspReview: ${data.results[i].review}</p>
-                            <img src="public/img/ok.png" height="25px" class="select" id="sel${cnt}0" onclick="selected(${cnt},0,${data.results[i].id})"><span class="count"  id="upc${data.results[i].id}"><b> </b></span><img src="public/img/stop.png" height="25px"  class="select" id="sel${cnt}1" onclick="selected(${cnt},1,${data.results[i].id})" style="margin-left:20px;"><span class="counter" id="dc${data.results[i].id}"> </span>
+                            <p><br/><b>${data[i].author}</b></p>
+                            <p>&nbsp&nbsp&nbspReview: ${data[i].review}</p>
+                            <img src="public/img/ok.png" height="25px" class="select" id="sel${cnt}0" onclick="selected(${cnt},0,${data[i].id})"><span class="count"  id="upc${data[i].id}"><b> </b></span><img src="public/img/stop.png" height="25px"  class="select" id="sel${cnt}1" onclick="selected(${cnt},1,${data[i].id})" style="margin-left:20px;"><span class="counter" id="dc${data[i].id}"> </span>
                         </div>
                         <div class="collapse" id="collapseExample1${cnt}">
-                            <h4>${data.results[i].advertisement.title}</h4>
-                            <p>${data.results[i].advertisement.advertizing_content}</p>
-                            <a href='${data.results[i].advertisement.url}' target="_balnk">${data.results[i].advertisement.url}</a>
+                            <h4>${data[i].advertisement.title}</h4>
+                            <p>${data[i].advertisement.advertizing_content}</p>
+                            <a href='${data[i].advertisement.url}' target="_balnk">${data[i].advertisement.url}</a>
                         </div>
                         </div>
                     </div>`
                 );
-                maketagsAndadvertisement(cnt,tags,data.results[i].advertisement);
+                maketagsAndadvertisement(cnt,tags,data[i].advertisement);
             }
             console.log("success");
         },
