@@ -24,6 +24,11 @@ body {
     margin-left: 10%;
 }
 
+.navbar{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 /* .select{
     filter: blur(0.5px);
 } */
