@@ -27,7 +27,12 @@ $('#formId').on('submit', function (e) {
     data.rate = localStorage.rate
     data.anonymous = localStorage.anonymous
     data.fake = localStorage.fake
-
+    if(localStorage.fake == "true"){
+        data.under_review = true;
+    }
+    else{
+        data.under_review =  false;
+    }
     testData = data;
     let advTitle = document.getElementById("advTitle").value;
     let advUrl = document.getElementById("advUrl").value;

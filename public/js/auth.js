@@ -58,6 +58,9 @@ function revokeAccess() {
 
 function setSigninStatus(isSignedIn) {
   var user = GoogleAuth.currentUser.get();
+  if(user.Ea){
+    localStorage.userImage = user.getBasicProfile().MK;
+  }
   console.log(user.getAuthResponse().access_token);
   if (user.getAuthResponse().access_token != undefined) {
   document.getElementById("loading").style.display = "block"
@@ -79,6 +82,7 @@ function setSigninStatus(isSignedIn) {
         console.log("Error" + e);
       },
       success: function (msg) {
+        console.log(msg)
         uname = msg.username
         localStorage.name = uname
         utoken = msg.access_token
@@ -102,7 +106,7 @@ function setSigninStatus(isSignedIn) {
             </a>
      
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item profile" href="timeline.html" id="profileBtn">Profile</a>
+                <a class="dropdown-item profile" href="profile.html" id="profileBtn">Profile</a>
 
                 <a class="dropdown-item" href="javascript:void(0);">Scrapstats: ${localStorage.scrapcoins}</a>
 
