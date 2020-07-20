@@ -7,6 +7,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script src="public/js/startups.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
         <link href="public/css/index.css" rel="stylesheet">
@@ -33,25 +34,37 @@
                     </ul>
                 </div>
             </nav>
-            <div class="tiles">
-                <a class="tile" href="#">
-                    <img src="public/img/cie.png"/>
-                    <div class="details">
-                        <span class="title">CIE - Accelerating Deep Tech</span>
+            <div class="container-fluid" style="width: 100%;display: none;" id="mainContent1">
+                <h3 style="font-family: sans;margin-bottom: 15px;text-align: center;">HALL OF FAME</h3>
+                <div class="card" style="width: 18rem;">
+                    <img src="public/img/cie.png" class="card-img-top" height="100px" alt="CIE">
+                    <div class="card-body">
+                    <h5 class="card-title">CIE</h5>
+                    <p class="card-text"><span id="rating"></span> out of 5 (<span id="count"></span> ratings)</p>
+                    <a href="https://cie.iiit.ac.in/" target="_blank" class="btn btn-primary">Visit CIE</a>
                     </div>
-                </a>
-                <a class="tile" href="#">
-                    <!-- <img src="public/img/cie.png"/>
-                    <div class="details">
-                        <span class="title">CIE - Accelerating Deep Tech</span>
-                    </div> -->
-                </a>
-                <a class="tile" href="#">
-                    <!-- <img src="public/img/cie.png"/>
-                    <div class="details">
-                        <span class="title">CIE - Accelerating Deep Tech</span>
-                    </div> -->
-                </a>
-            </div>        
+                </div> 
+                <hr style="height:1px;border-width:0;color:rgb(156, 155, 155);background-color:gray">
+            </div>  
+            <p style="text-align: center;" id="loading"><img class="img-fluid" src="public/img/loading.gif"></p>
+            <div class="container-fluid" style="width: 100%;display: none;" id="mainContent">
+                    <div class="card" style="width: 18rem;">
+                        <img src="public/img/cie.png" class="card-img-top" height="100px" alt="CIE">
+                        <div class="card-body">
+                        <h5 class="card-title">CIE</h5>
+                        <p class="card-text"><span id="rating1"></span> out of 5 (<span id="count1"></span> ratings)</p>
+                        <a href="https://cie.iiit.ac.in/" target="_blank" class="btn btn-primary">Visit CIE</a>
+                        </div>
+                    </div> 
+                    <div class="card" style="width: 18rem;">
+                        <img src="public/img/collab.jpg" class="card-img-top" height="100px" alt="CIE">
+                        <div class="card-body">
+                        <!-- <br/> -->
+                        <h5 class="card-title">Add your's</h5>
+                        <p class="card-text">Some description goes here</p>
+                        <a href="https://scrapshut.com" target="_blank" class="btn btn-primary">Visit Scrapshut</a>
+                        </div>
+                    </div> 
+            </div>  
         </body>
     </html>
