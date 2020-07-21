@@ -304,8 +304,8 @@ function getUserReviews() {
                 }
                 maketagsAndadvertisement(cnt,tags,data[i].advertisement,data[i]);
             }
-            $("#mainContent").css("display","block");
-            $("#loading").css("display","none");
+            // $("#mainContent").css("display","block");
+            // $("#loading").css("display","none");
             console.log("success");
         },
         error: function(data)

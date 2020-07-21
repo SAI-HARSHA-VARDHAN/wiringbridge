@@ -1,5 +1,12 @@
 let testData;
 
+window.onload = function () {
+    if(!localStorage.access_token){
+        $("#loading").css("display","none");
+        $("#mainContent").css("display","block");
+    }
+}
+
 function onSubmit(token) {
     document.getElementById("formId").submit();
 }

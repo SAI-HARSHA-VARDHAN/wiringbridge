@@ -98,7 +98,7 @@ function setSigninStatus(isSignedIn) {
     $('#signedIn').remove()
     localStorage.removeItem("access_token");
     console.log("removed")
-
+if(!location.href.includes("profile")){
     $('#navbar-list').append(`<li id="signedIn" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -113,6 +113,22 @@ function setSigninStatus(isSignedIn) {
                 <a class="dropdown-item" id="sign-in-or-out-button" href="#">Sign Out</a>
             </div>
         </li>`);
+  }
+  else{
+    $('#navbar-list').append(`<li id="signedIn" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ${localStorage.name}
+            </a>
+     
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                <a class="dropdown-item" href="javascript:void(0);">Scrapstats: ${localStorage.scrapcoins}</a>
+
+                <a class="dropdown-item" id="sign-in-or-out-button" href="#">Sign Out</a>
+            </div>
+        </li>`);
+  }
     $('#notSignedIn').remove()
     $('.profile').show();
     // $('#sign-in-or-out-button').html('Sign out');
@@ -165,6 +181,8 @@ function fetchProfile(a){
             localStorage.userid = id;
             console.log(localStorage.scrapcoins);
             console.log(localStorage.userid);
+            $("#mainContent").css("display","block");
+        $("#mainContent1").css("display","block");
             if(a == 1){
               console.log(a)
               aftersignin()
@@ -203,6 +221,8 @@ function fetchProfileGet(a){
             localStorage.userid = id;
             console.log(localStorage.scrapcoins);
             console.log(localStorage.userid);
+            $("#mainContent").css("display","block");
+            $("#mainContent1").css("display","block");
             if(a == 1){
               console.log(a)
               aftersignin()

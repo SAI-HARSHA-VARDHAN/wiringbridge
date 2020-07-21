@@ -9,4 +9,28 @@ body{
   margin-bottom: 30px;
   display: inline-block;
   text-align: center;
+  margin-top: 10px;
+}
+.hof{
+  text-align: center;
+}
+.hofimg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card-text{
+  font-size: 18px;
+}
+.rating{
+  font-size: 21px;
+}
+#rating,#rating1{
+  font-size: 25px;
+}
+.down{
+  text-align: left;
+  margin-top: -20px;
+  margin-left: 22px;
 }

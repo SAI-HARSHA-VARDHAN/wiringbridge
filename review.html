@@ -90,7 +90,12 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
         <ul id="navbar-list" class="navbar-nav ml-auto mr-5">
-
+          <li class="nav-item active" style="margin-right: 30px;">
+            <a href="startups.html">
+                <button id="reviewBtn" class="btn btn-primary my-2 ml-sm-4 my-sm-0 mr-2" type="button" style="font-size: 15px;">
+                    Startups </button>
+            </a>
+        </li>
           <li class="nav-item">
 
           </li>
@@ -99,9 +104,9 @@
     </div>
 
   </nav>
-
-  <img class="img-fuid  mx-auto d-block" src="public/img/scrapshut.gif" height="220px" width="320px">
-  <div class="container mainc">
+  <p style="text-align: center;" id="loading"><img class="img-fluid" src="public/img/loading.gif"></p>
+  <div class="container mainc" id="mainContent" style="display: none;">
+    <img class="img-fuid  mx-auto d-block" src="public/img/scrapshut.gif" height="220px" width="320px">
     <form id="formId">
       <div class="form-row">
         <div class="form-group col-4">
@@ -223,7 +228,10 @@
       </div>
     </div>
   </div>
-  <script src="public/js/review.js" type="text/javascript"></script>
+  <script src="public/js/review.js" type="text/javascript"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+      </script>
 </body>
 
 </html>
